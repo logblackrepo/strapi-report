@@ -4,7 +4,8 @@
   "info": {
     "singularName": "company",
     "pluralName": "companies",
-    "displayName": "Company"
+    "displayName": "Company",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,14 +16,15 @@
       "type": "string"
     },
     "company_logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "report_title": {
       "type": "string"
@@ -32,6 +34,10 @@
     },
     "report_description": {
       "type": "string"
+    },
+    "url": {
+      "type": "uid",
+      "required": true
     }
   }
 }
