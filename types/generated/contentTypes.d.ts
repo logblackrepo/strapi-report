@@ -810,6 +810,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::company.company'
     >;
     sort: Attribute.Integer;
+    video: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -894,6 +895,11 @@ export interface ApiContentContent extends Schema.CollectionType {
       ]
     >;
     sort: Attribute.Integer;
+    topic: Attribute.Relation<
+      'api::content.content',
+      'oneToOne',
+      'api::topic.topic'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
