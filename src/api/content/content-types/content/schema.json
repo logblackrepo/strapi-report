@@ -38,6 +38,9 @@
         "component.table",
         "component.url"
       ]
+    },
+    "sort": {
+      "type": "integer"
     }
   }
 }

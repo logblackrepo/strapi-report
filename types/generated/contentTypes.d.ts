@@ -794,6 +794,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -808,6 +809,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToOne',
       'api::company.company'
     >;
+    sort: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -896,6 +898,7 @@ export interface ApiContentContent extends Schema.CollectionType {
         'component.url'
       ]
     >;
+    sort: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -920,6 +923,7 @@ export interface ApiTopicTopic extends Schema.CollectionType {
     singularName: 'topic';
     pluralName: 'topics';
     displayName: 'Topic';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -937,6 +941,7 @@ export interface ApiTopicTopic extends Schema.CollectionType {
       'oneToOne',
       'api::category.category'
     >;
+    sort: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
