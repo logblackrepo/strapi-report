@@ -4,8 +4,7 @@
   "info": {
     "singularName": "topic",
     "pluralName": "topics",
-    "displayName": "Topic",
-    "description": ""
+    "displayName": "Topic"
   },
   "options": {
     "draftAndPublish": true

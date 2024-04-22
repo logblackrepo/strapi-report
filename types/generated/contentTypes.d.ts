@@ -883,11 +883,6 @@ export interface ApiContentContent extends Schema.CollectionType {
       'oneToOne',
       'api::company.company'
     >;
-    topic: Attribute.Relation<
-      'api::content.content',
-      'oneToOne',
-      'api::topic.topic'
-    >;
     content: Attribute.DynamicZone<
       [
         'component.description',
@@ -923,7 +918,6 @@ export interface ApiTopicTopic extends Schema.CollectionType {
     singularName: 'topic';
     pluralName: 'topics';
     displayName: 'Topic';
-    description: '';
   };
   options: {
     draftAndPublish: true;
