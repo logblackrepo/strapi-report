@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_component_urls",
+  "info": {
+    "displayName": "Url"
+  },
+  "options": {},
+  "attributes": {
+    "short_text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

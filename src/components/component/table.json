@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_component_tables",
+  "info": {
+    "displayName": "Table"
+  },
+  "options": {},
+  "attributes": {
+    "table": {
+      "type": "customField",
+      "options": {
+        "preset": "blockBalloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "a",
+        "b"
+      ]
+    }
+  }
+}
