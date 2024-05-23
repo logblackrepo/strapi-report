@@ -12,11 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "code": {
-      "type": "uid"
-    },
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "icon": {
       "type": "media",
@@ -38,17 +36,23 @@
       "target": "api::company.company"
     },
     "sort": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
-    "video": {
+    "background": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "code": {
+      "type": "string",
+      "required": true
     }
   }
 }

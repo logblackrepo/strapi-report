@@ -4,18 +4,17 @@
   "info": {
     "singularName": "topic",
     "pluralName": "topics",
-    "displayName": "Topic"
+    "displayName": "Topic",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "code": {
-      "type": "uid"
-    },
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "company": {
       "type": "relation",
@@ -28,7 +27,12 @@
       "target": "api::category.category"
     },
     "sort": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "required": true
     }
   }
 }

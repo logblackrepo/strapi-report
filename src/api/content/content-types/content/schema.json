@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "code": {
-      "type": "uid"
-    },
     "name": {
       "type": "string"
     },
@@ -41,6 +38,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::topic.topic"
+    },
+    "code": {
+      "type": "string"
     }
   }
 }

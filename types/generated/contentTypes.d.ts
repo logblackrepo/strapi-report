@@ -800,8 +800,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    code: Attribute.UID;
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Required;
     icon: Attribute.Media;
     description: Attribute.Text;
     company: Attribute.Relation<
@@ -809,8 +808,9 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToOne',
       'api::company.company'
     >;
-    sort: Attribute.Integer;
-    video: Attribute.Media;
+    sort: Attribute.Integer & Attribute.Required;
+    background: Attribute.Media;
+    code: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -841,9 +841,9 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    company_name: Attribute.String;
-    company_logo: Attribute.Media;
-    report_title: Attribute.String;
+    company_name: Attribute.String & Attribute.Required;
+    company_logo: Attribute.Media & Attribute.Required;
+    report_title: Attribute.String & Attribute.Required;
     report_subtitle: Attribute.Text;
     report_description: Attribute.String;
     url: Attribute.UID & Attribute.Required;
@@ -877,7 +877,6 @@ export interface ApiContentContent extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    code: Attribute.UID;
     name: Attribute.String;
     company: Attribute.Relation<
       'api::content.content',
@@ -900,6 +899,7 @@ export interface ApiContentContent extends Schema.CollectionType {
       'oneToOne',
       'api::topic.topic'
     >;
+    code: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -924,13 +924,13 @@ export interface ApiTopicTopic extends Schema.CollectionType {
     singularName: 'topic';
     pluralName: 'topics';
     displayName: 'Topic';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    code: Attribute.UID;
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Required;
     company: Attribute.Relation<
       'api::topic.topic',
       'oneToOne',
@@ -941,7 +941,8 @@ export interface ApiTopicTopic extends Schema.CollectionType {
       'oneToOne',
       'api::category.category'
     >;
-    sort: Attribute.Integer;
+    sort: Attribute.Integer & Attribute.Required;
+    code: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
