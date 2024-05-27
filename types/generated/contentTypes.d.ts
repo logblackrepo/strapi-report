@@ -805,12 +805,17 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     description: Attribute.Text;
     company: Attribute.Relation<
       'api::category.category',
-      'oneToOne',
+      'manyToOne',
       'api::company.company'
     >;
     sort: Attribute.Integer & Attribute.Required;
     background: Attribute.Media;
     code: Attribute.String & Attribute.Required;
+    topics: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::topic.topic'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -847,6 +852,11 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
     report_subtitle: Attribute.Text;
     report_description: Attribute.String;
     url: Attribute.UID & Attribute.Required;
+    categories: Attribute.Relation<
+      'api::company.company',
+      'oneToMany',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -896,7 +906,7 @@ export interface ApiContentContent extends Schema.CollectionType {
     sort: Attribute.Integer;
     topic: Attribute.Relation<
       'api::content.content',
-      'oneToOne',
+      'manyToOne',
       'api::topic.topic'
     >;
     code: Attribute.String;
@@ -938,11 +948,16 @@ export interface ApiTopicTopic extends Schema.CollectionType {
     >;
     category: Attribute.Relation<
       'api::topic.topic',
-      'oneToOne',
+      'manyToOne',
       'api::category.category'
     >;
     sort: Attribute.Integer & Attribute.Required;
     code: Attribute.String & Attribute.Required;
+    contents: Attribute.Relation<
+      'api::topic.topic',
+      'oneToMany',
+      'api::content.content'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

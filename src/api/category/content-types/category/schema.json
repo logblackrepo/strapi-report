@@ -32,8 +32,9 @@
     },
     "company": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::company.company"
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "categories"
     },
     "sort": {
       "type": "integer",
@@ -53,6 +54,12 @@
     "code": {
       "type": "string",
       "required": true
+    },
+    "topics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::topic.topic",
+      "mappedBy": "category"
     }
   }
 }

@@ -23,8 +23,9 @@
     },
     "category": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category"
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "topics"
     },
     "sort": {
       "type": "integer",
@@ -33,6 +34,12 @@
     "code": {
       "type": "string",
       "required": true
+    },
+    "contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::content.content",
+      "mappedBy": "topic"
     }
   }
 }
