@@ -910,6 +910,13 @@ export interface ApiContentContent extends Schema.CollectionType {
       'api::topic.topic'
     >;
     code: Attribute.String;
+    maintext: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
