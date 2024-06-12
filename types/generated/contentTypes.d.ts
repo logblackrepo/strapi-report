@@ -857,6 +857,7 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
       'oneToMany',
       'api::category.category'
     >;
+    cover: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
