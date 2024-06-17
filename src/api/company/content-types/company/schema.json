@@ -46,6 +46,20 @@
       "relation": "oneToMany",
       "target": "api::category.category",
       "mappedBy": "company"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "theme_color": {
+      "type": "string"
     }
   }
 }

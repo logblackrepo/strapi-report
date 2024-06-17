@@ -857,6 +857,8 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
       'oneToMany',
       'api::category.category'
     >;
+    cover: Attribute.Media;
+    theme_color: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -965,6 +967,7 @@ export interface ApiTopicTopic extends Schema.CollectionType {
       'oneToMany',
       'api::content.content'
     >;
+    framework_index: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
