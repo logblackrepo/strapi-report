@@ -919,6 +919,7 @@ export interface ApiContentContent extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
+    framework_index: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
