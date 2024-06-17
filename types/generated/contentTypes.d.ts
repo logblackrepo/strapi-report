@@ -850,7 +850,7 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
     company_logo: Attribute.Media & Attribute.Required;
     report_title: Attribute.String & Attribute.Required;
     report_subtitle: Attribute.Text;
-    report_description: Attribute.String;
+    report_description: Attribute.Text;
     url: Attribute.UID & Attribute.Required;
     categories: Attribute.Relation<
       'api::company.company',
