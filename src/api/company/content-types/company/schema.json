@@ -60,6 +60,12 @@
     },
     "theme_color": {
       "type": "string"
+    },
+    "footer_description": {
+      "type": "text"
+    },
+    "contact": {
+      "type": "text"
     }
   }
 }

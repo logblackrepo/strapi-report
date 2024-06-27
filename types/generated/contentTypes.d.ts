@@ -859,6 +859,8 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
     >;
     cover: Attribute.Media;
     theme_color: Attribute.String;
+    footer_description: Attribute.Text;
+    contact: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
