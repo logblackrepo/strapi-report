@@ -35,7 +35,7 @@
       "type": "text"
     },
     "report_description": {
-      "type": "string"
+      "type": "text"
     },
     "url": {
       "type": "uid",
@@ -48,14 +48,18 @@
       "mappedBy": "company"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "theme_color": {
+      "type": "string"
     }
   }
 }

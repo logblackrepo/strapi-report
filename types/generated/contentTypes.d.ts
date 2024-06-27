@@ -850,7 +850,7 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
     company_logo: Attribute.Media & Attribute.Required;
     report_title: Attribute.String & Attribute.Required;
     report_subtitle: Attribute.Text;
-    report_description: Attribute.String;
+    report_description: Attribute.Text;
     url: Attribute.UID & Attribute.Required;
     categories: Attribute.Relation<
       'api::company.company',
@@ -858,6 +858,7 @@ export interface ApiCompanyCompany extends Schema.CollectionType {
       'api::category.category'
     >;
     cover: Attribute.Media;
+    theme_color: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -918,6 +919,7 @@ export interface ApiContentContent extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
+    framework_index: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -966,6 +968,7 @@ export interface ApiTopicTopic extends Schema.CollectionType {
       'oneToMany',
       'api::content.content'
     >;
+    framework_index: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
