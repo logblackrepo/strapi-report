@@ -4,7 +4,8 @@
   "info": {
     "singularName": "blog-category",
     "pluralName": "blog-categories",
-    "displayName": "Blog-Category"
+    "displayName": "Blog-Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,9 @@
       "relation": "manyToMany",
       "target": "api::blog-post.blog-post",
       "mappedBy": "blog_categories"
+    },
+    "sort": {
+      "type": "integer"
     }
   }
 }

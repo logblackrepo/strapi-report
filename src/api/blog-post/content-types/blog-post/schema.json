@@ -59,6 +59,9 @@
     },
     "published_date": {
       "type": "datetime"
+    },
+    "sort": {
+      "type": "integer"
     }
   }
 }

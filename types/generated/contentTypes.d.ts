@@ -830,6 +830,7 @@ export interface ApiBlogCategoryBlogCategory extends Schema.CollectionType {
     singularName: 'blog-category';
     pluralName: 'blog-categories';
     displayName: 'Blog-Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -842,6 +843,7 @@ export interface ApiBlogCategoryBlogCategory extends Schema.CollectionType {
       'manyToMany',
       'api::blog-post.blog-post'
     >;
+    sort: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -896,6 +898,7 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
     description: Attribute.Text;
     tag: Attribute.String;
     published_date: Attribute.DateTime;
+    sort: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
