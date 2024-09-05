@@ -899,6 +899,11 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
     tag: Attribute.String;
     published_date: Attribute.DateTime;
     sort: Attribute.Integer;
+    page_contents: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'manyToMany',
+      'api::page-content.page-content'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1069,6 +1074,43 @@ export interface ApiContentContent extends Schema.CollectionType {
   };
 }
 
+export interface ApiPageContentPageContent extends Schema.CollectionType {
+  collectionName: 'page_contents';
+  info: {
+    singularName: 'page-content';
+    pluralName: 'page-contents';
+    displayName: 'Page-Content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    slug: Attribute.UID;
+    blog_posts: Attribute.Relation<
+      'api::page-content.page-content',
+      'manyToMany',
+      'api::blog-post.blog-post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-content.page-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-content.page-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTopicTopic extends Schema.CollectionType {
   collectionName: 'topics';
   info: {
@@ -1142,6 +1184,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::company.company': ApiCompanyCompany;
       'api::content.content': ApiContentContent;
+      'api::page-content.page-content': ApiPageContentPageContent;
       'api::topic.topic': ApiTopicTopic;
     }
   }

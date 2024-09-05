@@ -62,6 +62,12 @@
     },
     "sort": {
       "type": "integer"
+    },
+    "page_contents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::page-content.page-content",
+      "mappedBy": "blog_posts"
     }
   }
 }
