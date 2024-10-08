@@ -922,158 +922,6 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
   };
 }
 
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: 'categories';
-  info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Category';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    icon: Attribute.Media;
-    description: Attribute.Text;
-    company: Attribute.Relation<
-      'api::category.category',
-      'manyToOne',
-      'api::company.company'
-    >;
-    sort: Attribute.Integer & Attribute.Required;
-    background: Attribute.Media;
-    code: Attribute.String & Attribute.Required;
-    topics: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::topic.topic'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCompanyCompany extends Schema.CollectionType {
-  collectionName: 'companies';
-  info: {
-    singularName: 'company';
-    pluralName: 'companies';
-    displayName: 'Company';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    company_name: Attribute.String & Attribute.Required;
-    company_logo: Attribute.Media & Attribute.Required;
-    report_title: Attribute.String & Attribute.Required;
-    report_subtitle: Attribute.Text;
-    report_description: Attribute.Text;
-    url: Attribute.UID & Attribute.Required;
-    categories: Attribute.Relation<
-      'api::company.company',
-      'oneToMany',
-      'api::category.category'
-    >;
-    cover: Attribute.Media;
-    theme_color: Attribute.String;
-    footer_description: Attribute.Text;
-    contact: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::company.company',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::company.company',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiContentContent extends Schema.CollectionType {
-  collectionName: 'contents';
-  info: {
-    singularName: 'content';
-    pluralName: 'contents';
-    displayName: 'Content';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    company: Attribute.Relation<
-      'api::content.content',
-      'oneToOne',
-      'api::company.company'
-    >;
-    content: Attribute.DynamicZone<
-      [
-        'component.description',
-        'component.file',
-        'component.image',
-        'component.subtitle',
-        'component.table',
-        'component.url'
-      ]
-    >;
-    sort: Attribute.Integer;
-    topic: Attribute.Relation<
-      'api::content.content',
-      'manyToOne',
-      'api::topic.topic'
-    >;
-    code: Attribute.String;
-    maintext: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
-    framework_index: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::content.content',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::content.content',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPageContentPageContent extends Schema.CollectionType {
   collectionName: 'page_contents';
   info: {
@@ -1111,13 +959,12 @@ export interface ApiPageContentPageContent extends Schema.CollectionType {
   };
 }
 
-export interface ApiPageTopbannerPageTopbanner extends Schema.CollectionType {
-  collectionName: 'page_topbanners';
+export interface ApiTopbannerTopbanner extends Schema.SingleType {
+  collectionName: 'topbanners';
   info: {
-    singularName: 'page-topbanner';
-    pluralName: 'page-topbanners';
-    displayName: 'Page-Topbanner';
-    description: '';
+    singularName: 'topbanner';
+    pluralName: 'topbanners';
+    displayName: 'Topbanner';
   };
   options: {
     draftAndPublish: true;
@@ -1132,62 +979,13 @@ export interface ApiPageTopbannerPageTopbanner extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::page-topbanner.page-topbanner',
+      'api::topbanner.topbanner',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::page-topbanner.page-topbanner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTopicTopic extends Schema.CollectionType {
-  collectionName: 'topics';
-  info: {
-    singularName: 'topic';
-    pluralName: 'topics';
-    displayName: 'Topic';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    company: Attribute.Relation<
-      'api::topic.topic',
-      'oneToOne',
-      'api::company.company'
-    >;
-    category: Attribute.Relation<
-      'api::topic.topic',
-      'manyToOne',
-      'api::category.category'
-    >;
-    sort: Attribute.Integer & Attribute.Required;
-    code: Attribute.String & Attribute.Required;
-    contents: Attribute.Relation<
-      'api::topic.topic',
-      'oneToMany',
-      'api::content.content'
-    >;
-    framework_index: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::topic.topic',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::topic.topic',
+      'api::topbanner.topbanner',
       'oneToOne',
       'admin::user'
     > &
@@ -1216,12 +1014,8 @@ declare module '@strapi/types' {
       'api::blog-author.blog-author': ApiBlogAuthorBlogAuthor;
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
-      'api::category.category': ApiCategoryCategory;
-      'api::company.company': ApiCompanyCompany;
-      'api::content.content': ApiContentContent;
       'api::page-content.page-content': ApiPageContentPageContent;
-      'api::page-topbanner.page-topbanner': ApiPageTopbannerPageTopbanner;
-      'api::topic.topic': ApiTopicTopic;
+      'api::topbanner.topbanner': ApiTopbannerTopbanner;
     }
   }
 }
