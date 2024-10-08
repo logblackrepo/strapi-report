@@ -1111,6 +1111,41 @@ export interface ApiPageContentPageContent extends Schema.CollectionType {
   };
 }
 
+export interface ApiPageTopbannerPageTopbanner extends Schema.CollectionType {
+  collectionName: 'page_topbanners';
+  info: {
+    singularName: 'page-topbanner';
+    pluralName: 'page-topbanners';
+    displayName: 'Page-Topbanner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    icon: Attribute.Media;
+    title: Attribute.String;
+    url: Attribute.String;
+    is_outlink: Attribute.Boolean;
+    is_closebutton: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-topbanner.page-topbanner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-topbanner.page-topbanner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTopicTopic extends Schema.CollectionType {
   collectionName: 'topics';
   info: {
@@ -1185,6 +1220,7 @@ declare module '@strapi/types' {
       'api::company.company': ApiCompanyCompany;
       'api::content.content': ApiContentContent;
       'api::page-content.page-content': ApiPageContentPageContent;
+      'api::page-topbanner.page-topbanner': ApiPageTopbannerPageTopbanner;
       'api::topic.topic': ApiTopicTopic;
     }
   }
