@@ -800,7 +800,7 @@ export interface ApiBlogAuthorBlogAuthor extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    image: Attribute.Media;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     blog_posts: Attribute.Relation<
       'api::blog-author.blog-author',
       'oneToMany',
@@ -894,7 +894,7 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
       'manyToOne',
       'api::blog-author.blog-author'
     >;
-    cover: Attribute.Media;
+    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Attribute.Text;
     tag: Attribute.String;
     published_date: Attribute.DateTime;
@@ -915,6 +915,45 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::blog-post.blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogPostGuideBlogPostGuide extends Schema.SingleType {
+  collectionName: 'blog_post_guides';
+  info: {
+    singularName: 'blog-post-guide';
+    pluralName: 'blog-post-guides';
+    displayName: 'Blog-Post-Guide';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    slug: Attribute.UID;
+    published_date: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-post-guide.blog-post-guide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-post-guide.blog-post-guide',
       'oneToOne',
       'admin::user'
     > &
@@ -970,7 +1009,7 @@ export interface ApiTopbannerTopbanner extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    icon: Attribute.Media;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Attribute.String;
     url: Attribute.String;
     is_outlink: Attribute.Boolean;
@@ -1014,6 +1053,7 @@ declare module '@strapi/types' {
       'api::blog-author.blog-author': ApiBlogAuthorBlogAuthor;
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::blog-post-guide.blog-post-guide': ApiBlogPostGuideBlogPostGuide;
       'api::page-content.page-content': ApiPageContentPageContent;
       'api::topbanner.topbanner': ApiTopbannerTopbanner;
     }

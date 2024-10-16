@@ -55,3 +55,17 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+
+## memo
+1. git clone 
+2. npm install
+```
+npm install
+npm audit fix
+```
+3. .env 파일 구성 (성광, 원상에게 문의)
+4. npm run develop
+5. 첫 로그인시 어드민 회원 생성 및 로그인
+6. content-type 생성
+7. push to github
