@@ -68,4 +68,6 @@ npm audit fix
 4. npm run develop
 5. 첫 로그인시 어드민 회원 생성 및 로그인
 6. content-type 생성
-7. push to github
+7. push to origin
+8. https://cloud.strapi.io/projects/esg-report-test-8aa77fdef6/production/deployments 에서 확인 
+   1. Google login: biz.logblack@gmail.com 
