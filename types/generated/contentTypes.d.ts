@@ -794,6 +794,7 @@ export interface ApiBlogAuthorBlogAuthor extends Schema.CollectionType {
     singularName: 'blog-author';
     pluralName: 'blog-authors';
     displayName: 'Blog-Author';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -806,6 +807,14 @@ export interface ApiBlogAuthorBlogAuthor extends Schema.CollectionType {
       'oneToMany',
       'api::blog-post.blog-post'
     >;
+    sub_name: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

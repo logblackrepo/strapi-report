@@ -4,7 +4,8 @@
   "info": {
     "singularName": "blog-author",
     "pluralName": "blog-authors",
-    "displayName": "Blog-Author"
+    "displayName": "Blog-Author",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,20 +16,31 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "blog_posts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blog-post.blog-post",
       "mappedBy": "blog_author"
+    },
+    "sub_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
