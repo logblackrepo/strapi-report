@@ -815,6 +815,7 @@ export interface ApiBlogAuthorBlogAuthor extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
+    slug: Attribute.UID;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
